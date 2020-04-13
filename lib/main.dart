@@ -33,7 +33,7 @@ class HomeScreen extends StatelessWidget {
           MyHeader(
             image: "assets/icons/coronadr.svg",
             textTop: "Stay Home, ",
-            textMid: "Sanitize, ",
+            textMid: "Wash Your Hands, ",
             textBottom: "Stay Safe.",
           ),
           Container(

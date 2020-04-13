@@ -22,7 +22,7 @@ class InfoScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Symptoms",
+                    "Dominant Symptoms",
                     style: kTitleTextstyle,
                   ),
                   SizedBox(height: 20),
@@ -35,8 +35,8 @@ class InfoScreen extends StatelessWidget {
                         isActive: true,
                       ),
                       SymptomCard(
-                        image: "assets/images/caugh.png",
-                        title: "Caugh",
+                        image: "assets/images/cough.png",
+                        title: "Dry Cough/Sneeze",
                       ),
                       SymptomCard(
                         image: "assets/images/fever.png",
@@ -45,19 +45,25 @@ class InfoScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 20),
-                  Text("Prevention", style: kTitleTextstyle),
+                  Text("Preventive Measures", style: kTitleTextstyle),
                   SizedBox(height: 20),
                   PreventCard(
                     text:
-                        "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks",
-                    image: "assets/images/wear_mask.png",
-                    title: "Wear face mask",
+                        "Thoroughly wash your hands with soap and running water. Make sure you effectively clean all areas of the hands, including in btween the fingers. Alternatively, you can use alcohol based hand sanitizer; preferrably that with 80% alcohol content or more.",
+                    image: "assets/images/hands.png",
+                    title: "Wash your hands",
                   ),
                   PreventCard(
                     text:
-                        "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks",
-                    image: "assets/images/wash_hands.png",
-                    title: "Wash your hands",
+                        "Unless you really have to go out (maybe to grab supplies), you should stay at home and self quarantine to avoid catching the virus or unknowingly spreading the virus if you already have it.",
+                    image: "assets/images/home.png",
+                    title: "Stay At Home",
+                  ),
+                  PreventCard(
+                    text:
+                        "Since the start of the coronavirus outbreak some places have fully embraced wearing facemasks. You should also observe social distancing by avoiding close contact with other people.",
+                    image: "assets/images/social.png",
+                    title: "Wear a face mask",
                   ),
                   SizedBox(height: 50),
                 ],
@@ -86,7 +92,7 @@ class PreventCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: SizedBox(
-        height: 156,
+        height: 160,
         child: Stack(
           alignment: Alignment.centerLeft,
           children: <Widget>[
@@ -105,7 +111,11 @@ class PreventCard extends StatelessWidget {
                 ],
               ),
             ),
-            Image.asset(image),
+            Image.asset(
+              image,
+              width: 150,
+              height: 130,
+            ),
             Positioned(
               left: 130,
               child: Container(
@@ -121,16 +131,26 @@ class PreventCard extends StatelessWidget {
                       style: kTitleTextstyle.copyWith(
                         fontSize: 16,
                       ),
+                      overflow: TextOverflow.fade,
+                      maxLines: 1,
                     ),
                     Text(
                       text,
                       style: TextStyle(
                         fontSize: 12,
                       ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
                     ),
                     Align(
                       alignment: Alignment.topRight,
-                      child: SvgPicture.asset("assets/icons/forward.svg"),
+                      child: Text(
+                        "See details",
+                        style: TextStyle(
+                          color: kPrimaryColor,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ],
                 ),
