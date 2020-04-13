@@ -36,7 +36,7 @@ class InfoScreen extends StatelessWidget {
                       ),
                       SymptomCard(
                         image: "assets/images/cough.png",
-                        title: "Dry Cough/Sneeze",
+                        title: "Dry Cough",
                       ),
                       SymptomCard(
                         image: "assets/images/fever.png",
@@ -92,71 +92,76 @@ class PreventCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: SizedBox(
-        height: 180,
-        child: Stack(
-          alignment: Alignment.centerLeft,
-          children: <Widget>[
-            Container(
-              height: 136,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 8),
-                    blurRadius: 24,
-                    color: kShadowColor,
-                  ),
-                ],
-              ),
-            ),
-            Image.asset(
-              image,
-              width: 150,
-              height: 130,
-            ),
-            Positioned(
-              left: 130,
-              child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+        height: 145,
+        child: GestureDetector(
+          onTap: () => {
+            // open new page with the additional information
+          },
+          child: Stack(
+            alignment: Alignment.centerLeft,
+            children: <Widget>[
+              Container(
                 height: 136,
-                width: MediaQuery.of(context).size.width - 170,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      title,
-                      style: kTitleTextstyle.copyWith(
-                        fontSize: 16,
-                      ),
-                      overflow: TextOverflow.fade,
-                      maxLines: 1,
-                    ),
-                    Text(
-                      text,
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: Text(
-                        "See details",
-                        style: TextStyle(
-                          color: kPrimaryColor,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 8),
+                      blurRadius: 24,
+                      color: kShadowColor,
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+              Image.asset(
+                image,
+                width: 150,
+                height: 130,
+              ),
+              Positioned(
+                left: 130,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                  height: 136,
+                  width: MediaQuery.of(context).size.width - 170,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        title,
+                        style: kTitleTextstyle.copyWith(
+                          fontSize: 16,
+                        ),
+                        overflow: TextOverflow.fade,
+                        maxLines: 1,
+                      ),
+                      Text(
+                        text,
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Text(
+                          "See details",
+                          style: TextStyle(
+                            color: kPrimaryColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

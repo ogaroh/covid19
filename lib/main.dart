@@ -57,9 +57,14 @@ class HomeScreen extends StatelessWidget {
                     isExpanded: true,
                     underline: SizedBox(),
                     icon: SvgPicture.asset("assets/icons/dropdown.svg"),
-                    value: "Indonesia",
-                    items: ['Indonesia', 'Bangladesh', 'United States', 'Japan']
-                        .map<DropdownMenuItem<String>>((String value) {
+                    value: "Kenya",
+                    items: [
+                      'Kenya',
+                      'Indonesia',
+                      'Bangladesh',
+                      'United States',
+                      'Japan'
+                    ].map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
@@ -82,11 +87,11 @@ class HomeScreen extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "Case Update\n",
+                            text: "COVID-19 Update\n",
                             style: kTitleTextstyle,
                           ),
                           TextSpan(
-                            text: "Newest update March 28",
+                            text: "Newest update April 12, 2020",
                             style: TextStyle(
                               color: kTextLightColor,
                             ),
@@ -123,18 +128,18 @@ class HomeScreen extends StatelessWidget {
                     children: <Widget>[
                       Counter(
                         color: kInfectedColor,
-                        number: 1046,
-                        title: "Infected",
+                        number: 197,
+                        title: "Total Cases",
                       ),
                       Counter(
                         color: kDeathColor,
-                        number: 87,
+                        number: 8,
                         title: "Deaths",
                       ),
                       Counter(
                         color: kRecovercolor,
-                        number: 46,
-                        title: "Recovered",
+                        number: 25,
+                        title: "Recoveries",
                       ),
                     ],
                   ),
@@ -144,14 +149,19 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Spread of Virus",
+                      "Global Statistics",
                       style: kTitleTextstyle,
                     ),
-                    Text(
-                      "See details",
-                      style: TextStyle(
-                        color: kPrimaryColor,
-                        fontWeight: FontWeight.w600,
+                    GestureDetector(
+                      onTap: () => {
+                        // navigate to global stats page
+                      },
+                      child: Text(
+                        "See details",
+                        style: TextStyle(
+                          color: kPrimaryColor,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],
@@ -172,9 +182,9 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: Image.asset(
-                    "assets/images/map.png",
-                    fit: BoxFit.contain,
+                  child: SvgPicture.asset(
+                    "assets/icons/suburbs.svg",
+                    fit: BoxFit.fitWidth,
                   ),
                 ),
               ],
