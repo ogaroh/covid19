@@ -111,8 +111,8 @@ class InfoHeader extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Color(0xFF3383CD),
-              Color(0xFF11249F),
+              Colors.teal[500],
+              Colors.teal[900],
             ],
           ),
           image: DecorationImage(
