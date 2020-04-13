@@ -4,6 +4,8 @@ import 'package:covid19/widgets/my_header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'global_screen.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -155,6 +157,7 @@ class HomeScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () => {
                         // navigate to global stats page
+                        Navigator.of(context).push(_globalRoute()),
                       },
                       child: Text(
                         "See details",
@@ -166,41 +169,46 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(
-                  margin: EdgeInsets.only(top: 20),
-                  padding: EdgeInsets.all(20),
-                  height: 178,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 30,
-                        color: kShadowColor,
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      WorldCounter(
-                        color: kInfectedColor,
-                        number: 1870076,
-                        title: "Cases",
-                      ),
-                      WorldCounter(
-                        color: kDeathColor,
-                        number: 441323,
-                        title: "Deaths",
-                      ),
-                      WorldCounter(
-                        color: kRecovercolor,
-                        number: 116052,
-                        title: "Recoveries",
-                      ),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(_globalRoute());
+                  },
+                  child: Container(
+                    margin: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.all(20),
+                    height: 178,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 10),
+                          blurRadius: 30,
+                          color: kShadowColor,
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        WorldCounter(
+                          color: kInfectedColor,
+                          number: 1870076,
+                          title: "Cases",
+                        ),
+                        WorldCounter(
+                          color: kDeathColor,
+                          number: 441323,
+                          title: "Deaths",
+                        ),
+                        WorldCounter(
+                          color: kRecovercolor,
+                          number: 116052,
+                          title: "Recoveries",
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
@@ -210,4 +218,26 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Route _globalRoute() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => GlobalScreen(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      var begin = Offset(0.0, 1.0);
+      var end = Offset.zero;
+      var curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end);
+      var curvedAnimation = CurvedAnimation(
+        parent: animation,
+        curve: curve,
+      );
+
+      return SlideTransition(
+        position: tween.animate(curvedAnimation),
+        child: child,
+      );
+    },
+  );
 }
