@@ -1,6 +1,5 @@
 import 'package:covid19/constant.dart';
 import 'package:covid19/info_screen.dart';
-import 'package:covid19/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
@@ -8,11 +7,13 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 class MyHeader extends StatelessWidget {
   final String image;
   final String textTop;
+  final String textMid;
   final String textBottom;
   const MyHeader({
     Key key,
     this.image,
     this.textTop,
+    this.textMid,
     this.textBottom,
   }) : super(key: key);
 
@@ -29,8 +30,8 @@ class MyHeader extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Color(0xFF3383CD),
-              Color(0xFF11249F),
+              Colors.purple[300],
+              Colors.purple[800],
             ],
           ),
           image: DecorationImage(
@@ -44,14 +45,7 @@ class MyHeader extends StatelessWidget {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return InfoScreen();
-                      },
-                    ),
-                  );
+                  Navigator.of(context).push(_createRoute());
                 },
                 child: SvgPicture.asset("assets/icons/menu.svg"),
               ),
@@ -64,13 +58,13 @@ class MyHeader extends StatelessWidget {
                     image,
                     width: 230,
                     fit: BoxFit.fitWidth,
-                    alignment: Alignment.topCenter,
+                    alignment: Alignment.topLeft,
                   ),
                   Positioned(
                     top: 20,
                     left: 150,
                     child: Text(
-                      "$textTop \n$textBottom",
+                      "$textTop \n$textMid\n$textBottom",
                       style: kHeadingTextStyle.copyWith(
                         color: Colors.white,
                       ),
@@ -126,7 +120,7 @@ class InfoHeader extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(_createRoute());
+                  Navigator.pop(context);
                 },
                 child: Icon(
                   FeatherIcons.arrowLeft,
@@ -185,7 +179,7 @@ class MyClipper extends CustomClipper<Path> {
 
 Route _createRoute() {
   return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => HomeScreen(),
+    pageBuilder: (context, animation, secondaryAnimation) => InfoScreen(),
     transitionsBuilder: (context, animation, secondaryAnimation, child) {
       var begin = Offset(0.0, 1.0);
       var end = Offset.zero;

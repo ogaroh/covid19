@@ -12,9 +12,9 @@ class InfoScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             InfoHeader(
-              image: "assets/icons/coronadr.svg",
-              textTop: "Get to know",
-              textBottom: "About Covid-19.",
+              image: "assets/icons/Drcorona.svg",
+              textTop: "Get to know about",
+              textBottom: "the Covid-19 virus.",
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -22,7 +22,7 @@ class InfoScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "COVID-19 Symptoms",
+                    "Symptoms",
                     style: kTitleTextstyle,
                   ),
                   SizedBox(height: 20),

@@ -31,9 +31,10 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: <Widget>[
           MyHeader(
-            image: "assets/icons/Drcorona.svg",
-            textTop: "All you need to do",
-            textBottom: "is stay at home.",
+            image: "assets/icons/coronadr.svg",
+            textTop: "Stay Home, ",
+            textMid: "Sanitize, ",
+            textBottom: "Stay Safe.",
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
@@ -48,7 +49,6 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             child: Row(
-
               children: <Widget>[
                 SvgPicture.asset("assets/icons/maps-and-flags.svg"),
                 SizedBox(width: 20),
