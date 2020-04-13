@@ -1,7 +1,8 @@
 import 'package:covid19/constant.dart';
+import 'package:covid19/widgets/charts.dart';
 import 'package:covid19/widgets/my_header.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
+import 'package:charts_flutter/flutter.dart';
 
 class GlobalScreen extends StatelessWidget {
   @override
@@ -27,6 +28,10 @@ class GlobalScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   // other stuff
+                  Container(
+                    height: 450,
+                    child: GroupedBarChart.withSampleData(),
+                  ),
                   SizedBox(height: 50),
                 ],
               ),
