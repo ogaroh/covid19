@@ -1,7 +1,7 @@
 import 'package:covid19/constant.dart';
 import 'package:covid19/widgets/my_header.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 class InfoScreen extends StatelessWidget {
   @override
@@ -92,7 +92,7 @@ class PreventCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
       child: SizedBox(
-        height: 160,
+        height: 180,
         child: Stack(
           alignment: Alignment.centerLeft,
           children: <Widget>[
