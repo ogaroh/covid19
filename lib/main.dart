@@ -155,9 +155,9 @@ class HomeScreen extends StatelessWidget {
                       style: kTitleTextstyle,
                     ),
                     GestureDetector(
-                      onTap: () => {
+                      onTap: () {
                         // navigate to global stats page
-                        Navigator.of(context).push(_globalRoute()),
+                        Navigator.of(context).push(_globalRoute());
                       },
                       child: Text(
                         "See details",
