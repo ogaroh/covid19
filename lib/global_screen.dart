@@ -2,7 +2,6 @@ import 'package:covid19/constant.dart';
 import 'package:covid19/widgets/charts.dart';
 import 'package:covid19/widgets/my_header.dart';
 import 'package:flutter/material.dart';
-import 'package:charts_flutter/flutter.dart';
 
 class GlobalScreen extends StatelessWidget {
   @override
