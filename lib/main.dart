@@ -87,7 +87,7 @@ class HomeScreen extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: "COVID-19 Update\n",
+                            text: "Selected Country \n",
                             style: kTitleTextstyle,
                           ),
                           TextSpan(
@@ -129,7 +129,7 @@ class HomeScreen extends StatelessWidget {
                       Counter(
                         color: kInfectedColor,
                         number: 197,
-                        title: "Total Cases",
+                        title: "Cases",
                       ),
                       Counter(
                         color: kDeathColor,
@@ -182,9 +182,25 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: SvgPicture.asset(
-                    "assets/icons/suburbs.svg",
-                    fit: BoxFit.fitWidth,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      WorldCounter(
+                        color: kInfectedColor,
+                        number: 1870076,
+                        title: "Cases",
+                      ),
+                      WorldCounter(
+                        color: kDeathColor,
+                        number: 441323,
+                        title: "Deaths",
+                      ),
+                      WorldCounter(
+                        color: kRecovercolor,
+                        number: 116052,
+                        title: "Recoveries",
+                      ),
+                    ],
                   ),
                 ),
               ],

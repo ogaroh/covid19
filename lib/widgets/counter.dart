@@ -39,7 +39,7 @@ class Counter extends StatelessWidget {
         Text(
           "$number",
           style: TextStyle(
-            fontSize: 40,
+            fontSize: 35,
             color: color,
           ),
         ),
@@ -49,4 +49,50 @@ class Counter extends StatelessWidget {
   }
 }
 
+class WorldCounter extends StatelessWidget {
+  final int number;
+  final Color color;
+  final String title;
+  const WorldCounter({
+    Key key,
+    this.number,
+    this.color,
+    this.title,
+  }) : super(key: key);
 
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(6),
+          height: 30,
+          width: 30,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color.withOpacity(.26),
+          ),
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.transparent,
+              border: Border.all(
+                color: color,
+                width: 2,
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 10),
+        Text(
+          "$number",
+          style: TextStyle(
+            fontSize: 20,
+            color: color,
+          ),
+        ),
+        Text(title, style: kSubTextStyle),
+      ],
+    );
+  }
+}
