@@ -11,7 +11,7 @@ class InfoScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            MyHeader(
+            InfoHeader(
               image: "assets/icons/coronadr.svg",
               textTop: "Get to know",
               textBottom: "About Covid-19.",
@@ -22,7 +22,7 @@ class InfoScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "COVID_19 Symptoms",
+                    "COVID-19 Symptoms",
                     style: kTitleTextstyle,
                   ),
                   SizedBox(height: 20),
